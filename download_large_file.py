@@ -3,12 +3,12 @@ import requests, os
 def download_video(url, name):
     # type: (object, object, object) -> object
     with open( name, 'wb') as handle:
-        resposne = requests.get(url=url, stream=True)
+        response = requests.get(url=url, stream=True)
 
-        if not resposne.ok:
+        if not response.ok:
             print  'You Fucked up'
 
-        for block in resposne.iter_content(1024):
+        for block in response.iter_content(1024):
             handle.write(block)
 
 
